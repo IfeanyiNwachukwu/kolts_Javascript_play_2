@@ -52,3 +52,5 @@ const parityList2 = nums.map(n =>{
     if(n % 2 === 0) return `${n} is even`;
     return `${n} is odd`
 });
+
+
