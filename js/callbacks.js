@@ -77,6 +77,12 @@ const books = [{
     genres: ['fiction', 'short stories']
   },
   {
+    title: 'A Truly Horrible Book',
+    authors: ['Xavier Time'],
+    rating: 2.18,
+    genres: ['fiction', 'garbage']
+  },
+  {
     title: 'The Way of Kings',
     authors: ['Brandon Sanderson'],
     rating: 4.65,
@@ -326,5 +332,80 @@ const numsToCheck = [3,4,5,6,7];
 const product =  numsToCheck.reduce((total,currentValue) =>{
     return total * currentValue;
 })
+Demarcation();
+const grades = [87,64,96,92,88,99,73,70,64]
+const maxGrade = grades.reduce((max, currVal) => {
+    if(max > currVal) return max;
+    return currVal;
+});
+
+console.log(maxGrade);
+
+Demarcation();
+
+const lowestGrade = grades.reduce((previousValue, currentValue) =>{
+    if(previousValue < currentValue) return previousValue;
+    return currentValue;
+});
+
+const maxGrade2 = grades.reduce((previousValue,currentValue) => {
+    return Math.max(previousValue,currentValue);
+});
+
+const lowestGrade2 = grades.reduce((previousValue,currentValue) => {
+    return Math.min(previousValue,currentValue);
+});
+
+const sum = [10,20,30,40,50].reduce((previousValue,currentValue) => {
+    return previousValue + currentValue
+}, 500);  // 500 is the initialized current value
+
+console.log(sum);
+
+Demarcation();
+
+const votes = ['y','y','n','absent','absent','y','n','y','n','y','n','n','n','y','y'];
+
+const voteResults = votes.reduce((tally, val) =>{
+    if(tally[val]){
+        tally[val]++  // 1 is added to the value
+    }
+    else{
+        tally[val] = 1  // The objecut is initialized... the key is y and the value is 1
+    }
+    return tally;
+},{})
+
+const voteResultsAlt = votes.reduce((tally,currentValue) =>{
+    if(tally[currentValue]){
+        tally[currentValue]++
+    }
+    else{
+        tally[currentValue] = 1
+    }
+
+    return tally;
+},{})
 
 
+
+voteResultSimplified = votes.reduce((tally,val) =>{
+    tally[val] = (tally[val]  || 0) + 1;
+    return tally;
+},{})
+
+
+
+
+bookratingsHigh = books.reduce((groupedBooks, book) =>{
+    const key = Math.floor(book.rating);
+
+   if(!groupedBooks[key]){
+       groupedBooks[key] = [];
+   }
+   groupedBooks[key].push(book)
+    
+    return groupedBooks;
+    
+   
+},{})
