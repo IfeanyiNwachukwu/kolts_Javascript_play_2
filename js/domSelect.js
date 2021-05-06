@@ -58,6 +58,11 @@ document.querySelector('input[type="password"]');
 
 // Note: querySelector is less performant
 
+const p = document.querySelector('p');
+display(p);
+p.style.color = 'white';
+p.style.backgroundColor = 'black';
+
 
 
 
